@@ -20,7 +20,7 @@ def commit_comments_service(contributors,commits):
             print("Couldn't get commit author login or commit comment")
     
 
-    # commit message uzunluğu 15 karakterin altındaysa sayma
+
     endTime = time.time()
     
     print("-----commit_comments ended at " + str(endTime - start))

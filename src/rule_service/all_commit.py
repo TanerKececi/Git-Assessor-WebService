@@ -11,9 +11,7 @@ def all_commit(contributors,commits):
         dict[contributor.login] = False
     
     
-    #for contributor in contributors:
-    #    dict[contributor] = False
-    #print(dict.)
+
 
     for commit in commits:
         try:
@@ -21,8 +19,7 @@ def all_commit(contributors,commits):
                 dict[commit.author.login] = True
         except:
             print("No author name detected!")
-    
-    #contrbituro ve collaborator farklarına bak
+
     endTime = time.time()
     print("---all_commit ended at " + str(endTime - start))
     return dict

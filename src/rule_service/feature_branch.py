@@ -23,6 +23,7 @@ def feature_branch_service(contributors, branches):
     if len(arr) == contributors.totalCount:
         print("------feature_branch ended " + str(endTime-start))
         return dict
+        
     else:
         print("------feature_branch ended " + str(endTime-start))
         return dict
