@@ -26,6 +26,7 @@ def check_repo_service(indiv_link,rules, access_token):
                 result[repo.name] = {}
                 repo_result['name'] = repo.name
                 print("--REPO STARTED " + repo.name)
+                
             except:
                 return "Couldn't get repo from link {}".format(txt[1])
             
@@ -37,38 +38,35 @@ def check_repo_service(indiv_link,rules, access_token):
             
             executor = ThreadPoolExecutor(max_workers=4)
             
-            #for branch in branches:
-            #    branch.name
-            #for commit in commits:
-            #    print(commit.committer)
-
-            #for branch in branches:
-            #    branch.commit.author
-
+            
+            # Bot Test
             for rule in rules:
+
                 if rule == "1":
                     t1 = executor.submit(all_commit, contributors,commits)
                     repo_result['commit'] = t1.result()
+
                 elif rule == "2":
+
                     t2 = executor.submit(readme_rule_service, repo)
                     repo_result['readme'] = t2.result()
+
                 elif rule == "3":
+
                     t3 = executor.submit(commit_comments_service, contributors, commits)
                     repo_result['commit_comments'] = t3.result()
+
                 elif rule == "4":
+
                     t4 = executor.submit(feature_branch_service, contributors, branches)
                     repo_result['feature_branch'] = t4.result()
+
                 else:
                     print("Unknown rule!!")
             
 
             
-            #t1 = executor.submit(all_commit, contributors,commits)
-            #t2 = executor.submit(readme_rule_service, repo)
-            #t3 = executor.submit(commit_comments_service, commits)
-            #t4 = executor.submit(feature_branch_service, contributors, branches)
             
-            #repo_result = {'commit':t1.result(), 'readme':t2.result(), 'commit_comments':t3.result(), 'feature_branch':t4.result()}
             
             result[repo.name].update(repo_result)
             
