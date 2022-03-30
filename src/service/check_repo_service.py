@@ -39,7 +39,7 @@ def check_repo_service(indiv_link,rules, access_token):
             executor = ThreadPoolExecutor(max_workers=4)
             
             
-
+            # Bot Test
             for rule in rules:
 
                 if rule == "1":

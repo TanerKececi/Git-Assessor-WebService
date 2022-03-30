@@ -32,7 +32,7 @@ def check_links_service(link : Git_Links):
     
     
     
-    access_token = "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"
+    access_token = "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"
 
     repoExecutor = ThreadPoolExecutor(max_workers=5)
 

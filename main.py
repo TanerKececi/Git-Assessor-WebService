@@ -26,4 +26,3 @@ app.include_router(
     assessor_router,
     prefix="/git_assessor",
 )
-
